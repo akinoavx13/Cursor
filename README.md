@@ -2,6 +2,17 @@
 
 A curated set of reusable Cursor rules to accelerate architecture, bootstrapping, testing, security, QA, and refactoring across projects.
 
+## Contents
+
+- [What this repo contains](#what-this-repo-contains)
+- [Quick start](#quick-start)
+- [Using a rule in chat](#using-a-rule-in-chat)
+- [Rules overview](#rules-overview)
+- [When to use each rule](#when-to-use-each-rule)
+- [Conventions and behavior](#conventions-and-behavior)
+- [Customize or add a new rule](#customize-or-add-a-new-rule)
+- [Suggested entry point](#suggested-entry-point)
+
 ## What this repo contains
 
 - `rules/*.mdc`: Rule cards with frontmatter, scopes, and checklists you can apply in Cursor chats.
@@ -33,13 +44,13 @@ mkdir -p .cursor/rules && cp -R rules/* .cursor/rules/
 
 ## Rules overview
 
-- API Architect (`api-architect.mdc`) — design and implement backend APIs (REST/GraphQL), DB schema, auth, security, deployment.
-- Refactoring Architect (`refactoring-architect.mdc`) — analyze and refactor code structure to improve maintainability.
-- Next.js Bootstrapper (`nextjs-bootstrapper.mdc`) — spin up a production-ready Next.js app (TS + Tailwind + App Router).
-- Project Planner (`project-planner.mdc`) — break down complex work and coordinate across domains.
-- QA Engineer (`qa-engineer.mdc`) — define test strategy and implement tests.
-- Security Auditor (`security-auditor.mdc`) — run a targeted security audit; prioritize findings.
-- SwiftUI Expert (`swiftui-expert.mdc`) — build/refactor SwiftUI using iOS 18+ patterns.
+- API Architect ([rules/api-architect.mdc](rules/api-architect.mdc)) — design and implement backend APIs (REST/GraphQL), DB schema, auth, security, deployment.
+- Refactoring Architect ([rules/refactoring-architect.mdc](rules/refactoring-architect.mdc)) — analyze and refactor code structure to improve maintainability.
+- Next.js Bootstrapper ([rules/nextjs-bootstrapper.mdc](rules/nextjs-bootstrapper.mdc)) — spin up a production-ready Next.js app (TS + Tailwind + App Router).
+- Project Planner ([rules/project-planner.mdc](rules/project-planner.mdc)) — break down complex work and coordinate across domains.
+- QA Engineer ([rules/qa-engineer.mdc](rules/qa-engineer.mdc)) — define test strategy and implement tests.
+- Security Auditor ([rules/security-auditor.mdc](rules/security-auditor.mdc)) — run a targeted security audit; prioritize findings.
+- SwiftUI Expert ([rules/swiftui-expert.mdc](rules/swiftui-expert.mdc)) — build/refactor SwiftUI using iOS 18+ patterns.
 
 ## When to use each rule
 
