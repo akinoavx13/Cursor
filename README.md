@@ -1,0 +1,2 @@
+# Cursor
+My Cursor Setup
