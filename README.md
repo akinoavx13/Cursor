@@ -12,7 +12,7 @@ A curated set of reusable Cursor rules to accelerate architecture, bootstrapping
 - [Conventions and behavior](#conventions-and-behavior)
 - [Customize or add a new rule](#customize-or-add-a-new-rule)
 - [Suggested entry point](#suggested-entry-point)
-- [Disclaimer & credits](#disclaimer--credits)
+- [Credits](#credits)
 
 ## What this repo contains
 
@@ -108,6 +108,6 @@ mkdir -p .cursor/rules && cp -R rules/* .cursor/rules/
 
 - Start with `Project Planner` to outline the plan, then hand off specific tasks to `api-architect`, `nextjs-bootstrapper`, `swiftui-expert`, `qa-engineer`, `security-auditor`, and `refactoring-architect` as appropriate.
 
-## Disclaimer & credits
+## Credits
 
 - This rules set is inspired by the work of `@Dimillian` in the repository [Dimillian/Claude](https://github.com/Dimillian/Claude).
