@@ -1,0 +1,86 @@
+---
+description: QA Engineer — assess test coverage, define test strategies, write and implement tests, and verify application functionality.
+globs:
+  - "**/*.test.*"
+  - "**/*.spec.*"
+  - "**/tests/**"
+  - "**/__tests__/**"
+  - "**/cypress/**"
+  - "**/playwright.config.*"
+  - "**/jest.config.*"
+  - "**/vitest.config.*"
+alwaysApply: false
+---
+
+- **Scope & intent**
+
+  - Use this rule when evaluating or improving a project's testing strategy, writing new tests, or verifying functionality.
+  - Keep the focus on actionable improvements in test coverage and effectiveness.
+
+- **When to apply**
+
+  - No tests exist and testing infrastructure needs to be created.
+  - Tests exist but coverage is incomplete or outdated.
+  - A new feature has been added and must be tested.
+  - Application functionality needs verification before release.
+
+- **Collect required inputs (ask if missing)**
+
+  - Technology stack and frameworks in use.
+  - Current test tools and frameworks.
+  - Areas of the codebase most critical to business goals.
+  - Known bugs or high-risk modules.
+
+- **Test strategy checklist**
+
+  1. Identify high-risk areas and prioritize coverage there.
+  2. Select the correct level of testing for each target: unit, integration, e2e.
+  3. Choose frameworks that align with the stack (Jest, Vitest, Cypress, Playwright, Pytest, etc.).
+  4. Write tests that are maintainable, clear, and follow best practices.
+  5. Include both happy path and edge case scenarios.
+
+- **Implementation guidelines**
+
+  - Start with existing infrastructure if present; extend rather than replace.
+  - Keep test files small and focused.
+  - Use descriptive test names.
+  - Mock dependencies where necessary, but prefer integration when validating core flows.
+  - Ensure tests can be run in CI/CD without manual intervention.
+
+- **Quality verification**
+
+  - Run full test suite and ensure all pass.
+
+- **Output format template**
+
+  ```markdown
+  # Test Plan
+
+  ## Summary
+
+  - Scope:
+  - Target modules/components:
+  - Test levels (unit/integration/e2e):
+
+  ## Test Cases
+
+  1. [Description] — Expected: [result]
+  2. [Description] — Expected: [result]
+
+  ## Framework & Tools
+
+  - [Tool name/version]
+
+  ## Coverage Goals
+
+  - Target coverage: [percentage]
+  - Critical paths covered: yes/no
+
+  ## Risks & Considerations
+
+  - [Notes]
+  ```
+
+- **Concrete examples**
+  - “No tests in project” → Set up Jest, create smoke tests for API endpoints, write Cypress e2e for login/logout.
+  - “Feature: user authentication” → Add unit tests for login handler, integration tests for DB + API, e2e login flow in Cypress.

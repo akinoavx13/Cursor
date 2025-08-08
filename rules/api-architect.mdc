@@ -1,0 +1,113 @@
+---
+description: API Architect — design and implement backend APIs tailored to frontend needs, including framework choice, REST/GraphQL design, DB schema, authentication, security, and deployment.
+globs:
+  - "**/api/**"
+  - "**/server/**"
+  - "**/*.openapi.*"
+  - "**/schema.prisma"
+  - "**/docker-compose.yml"
+  - "**/*.py"
+  - "**/*.js"
+  - "**/*.ts"
+  - "**/*.go"
+  - "**/*.java"
+  - "**/*.rb"
+alwaysApply: false
+---
+
+- **Scope & intent**
+
+  - Use this rule when designing or implementing backend APIs for a frontend app (web, mobile, desktop).
+  - Optimize for scalability, security, and maintainability.
+
+- **When to apply**
+
+  - A frontend needs a backend API.
+  - A new API must be designed or existing API refactored.
+  - Database schema, auth, and deployment considerations are part of the request.
+
+- **Collect required inputs (ask if missing)**
+
+  - Frontend tech stack and platforms.
+  - Functional requirements (features, data models, flows).
+  - Non-functional requirements (perf, scale, security).
+  - Real-time needs (WebSockets, SSE, etc.).
+  - Auth model (JWT, OAuth2, sessions).
+
+- **API design checklist**
+
+  1. Choose API style: REST, GraphQL, gRPC.
+  2. Select backend framework (Express/NestJS/Fastify, FastAPI/DRF, Spring Boot, Gin/Fiber, Rails API, etc.) and justify choice.
+  3. Define clear endpoints or schema with request/response formats.
+  4. Plan error handling, validation, and versioning.
+  5. Add pagination, filtering, sorting.
+
+- **Database checklist**
+
+  - Pick SQL (Postgres/MySQL) or NoSQL (MongoDB/DynamoDB) based on structure.
+  - Normalize (or purposeful denormalization), set indexes, and write migrations.
+  - Apply DB-level validations.
+
+- **Security checklist**
+
+  - Implement authentication (JWT/OAuth2/PKCE, sessions).
+  - Apply RBAC/ABAC as needed.
+  - Enforce CORS, rate limiting, TLS, and secret management.
+
+- **Performance checklist**
+
+  - Response shaping to minimize client work.
+  - Cache where needed (HTTP, Redis).
+  - Optimize payload sizes for mobile.
+
+- **Deployment considerations**
+
+  - Containerize with Docker.
+  - Env-based configs.
+  - Health checks.
+  - Horizontal scaling readiness.
+  - Cloud deployment strategy.
+
+- **Output format template**
+
+  ```markdown
+  # Backend API Plan
+
+  ## Summary
+
+  - Frontend:
+  - API style & framework:
+  - Database:
+  - Auth:
+  - Non-functional goals:
+
+  ## Endpoints
+
+  - [METHOD] /resource
+    - Request: {}
+    - Response: {}
+    - Notes:
+
+  ## Data Model
+
+  - Tables/Collections:
+  - Indexes:
+
+  ## Security
+
+  - Auth model:
+  - Roles/scopes:
+
+  ## Deployment
+
+  - Containerization:
+  - Cloud target:
+
+  ## Testing
+
+  - Unit, integration, e2e plan
+  ```
+
+- **Concrete examples**
+  - “React e-commerce app” → REST API with NestJS, Postgres schema, JWT auth, OpenAPI docs.
+  - “Flutter chat app” → WebSocket + REST API with FastAPI, MongoDB, token-based auth.

@@ -1,0 +1,74 @@
+---
+description: Refactoring Architect — analyze and refactor code structure, resolve architectural issues, and improve maintainability across tech stacks.
+globs:
+  - "**/*.js"
+  - "**/*.ts"
+  - "**/*.jsx"
+  - "**/*.tsx"
+  - "**/*.py"
+  - "**/*.java"
+  - "**/*.swift"
+  - "**/*.vue"
+  - "**/*.rb"
+alwaysApply: false
+---
+
+- **Scope & intent**
+
+  - Use this rule to identify and fix structural and architectural problems in codebases.
+  - Focus on actionable improvements to maintainability, clarity, and adherence to architectural patterns.
+
+- **When to apply**
+
+  - The user requests code cleanup, structure improvements, or separation of concerns.
+  - There are signs of large, complex files (>300–500 lines) or mixed responsibilities.
+  - Business logic appears inside UI components or controllers.
+  - The project shows inconsistent patterns or duplicated logic.
+
+- **Collect required inputs (ask if missing)**
+
+  - Tech stack (frontend, backend, mobile, etc.) and frameworks/libraries in use.
+  - Known problem areas or recent changes that may have introduced complexity.
+  - Constraints (time, risk tolerance, performance requirements).
+
+- **Refactoring decision framework**
+
+  1. Identify critical hotspots (large files, repeated patterns, high coupling).
+  2. Propose minimal viable changes first; avoid large rewrites unless necessary.
+  3. Separate concerns (UI, business logic, data access) into clear layers/modules.
+  4. Remove duplication; extract reusable utilities/components.
+  5. Ensure changes align with existing project conventions and team practices.
+
+- **Actionable output format**
+
+  ````markdown
+  # Refactoring Plan
+
+  ## Summary of issues
+
+  - Issue 1: [description]
+  - Issue 2: [description]
+
+  ## Recommended changes
+
+  1. [Step-by-step change]
+  2. [Step-by-step change]
+
+  ## Code examples
+
+  ```before
+  [old code]
+  ```
+
+  ```after
+  [refactored code]
+  ```
+
+  ## Risks / considerations
+
+  - [Potential impact of refactor]
+  ````
+
+- **Concrete examples**
+  - “React dashboard with 1000‑line component mixing API calls and rendering.” → Split into smaller components, move API calls to hooks, centralize state management.
+  - “Node.js API routes with business logic inline.” → Extract to service layer, add unit tests, reuse validation middleware.

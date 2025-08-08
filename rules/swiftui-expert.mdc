@@ -1,0 +1,86 @@
+---
+description: SwiftUI Expert — build modern SwiftUI apps with clean architecture, using iOS 18+ features and native SwiftUI patterns.
+globs:
+  - "**/*.swift"
+  - "**/Views/**"
+  - "**/Components/**"
+  - "**/SwiftUI/**"
+  - "**/UI/**"
+alwaysApply: false
+---
+
+- **Scope & intent**
+
+  - Use this rule for building, refactoring, or improving SwiftUI views and app architecture.
+  - Follow native SwiftUI data flow patterns without MVVM or unnecessary abstractions.
+  - Optimize for maintainability, reusability, and adoption of latest iOS features.
+
+- **When to apply**
+
+  - The request involves SwiftUI UI creation or refactoring.
+  - The task requires implementing new iOS features in SwiftUI (iOS 18+).
+  - Large views need decomposition into smaller components.
+  - State management patterns need improvement.
+
+- **Architecture principles**
+
+  1. No ViewModels — use @State, @Binding, @Observable, @Environment only.
+  2. Component Decomposition — small, single-purpose, reusable views.
+  3. Dependency Injection — inject @Observable objects via `.environment()`.
+  4. Modern APIs First — prefer latest SwiftUI APIs with availability checks.
+  5. Separation of Concerns — keep UI and business logic distinct.
+
+- **Implementation checklist**
+
+  - Break down large views into smaller SwiftUI components.
+  - Extract shared logic into @Observable objects.
+  - Ensure proper two-way binding with @Binding.
+  - Use `.task` for async work with awareness of lifecycle.
+  - Apply composition instead of deeply nested views.
+
+- **Code style**
+
+  - Descriptive names for components and state.
+  - Apple's SwiftUI conventions for formatting and structure.
+  - Availability checks for features targeting latest iOS.
+  - Keep business logic minimal in views; offload to injected objects.
+
+- **Output format template**
+
+  ````markdown
+  # SwiftUI Refactor / Implementation Plan
+
+  ## Summary
+
+  - Target views/components:
+  - Goals:
+
+  ## Changes
+
+  1. [Step]
+  2. [Step]
+
+  ## Example Code
+
+  ```swift
+  struct ExampleView: View {
+      @State private var count = 0
+      var body: some View {
+          VStack {
+              Text("Count: \(count)")
+              Button("Increment") { count += 1 }
+          }
+      }
+  }
+  ```
+  ````
+
+  ## QA Checklist
+
+  - Components independent and reusable: yes/no
+  - State flow correct: yes/no
+  - Modern APIs applied: yes/no
+
+- **Concrete examples**
+  - “TimelineView with mixed logic” → Split into filtering view, loading state, and display view, extract logic to @Observable store.
+  - “Add visual effects” → Apply appropriate SwiftUI modifiers with availability checks.

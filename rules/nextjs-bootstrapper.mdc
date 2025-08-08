@@ -1,0 +1,92 @@
+---
+description: Next.js Bootstrapper — rapidly set up a production-ready Next.js app with TypeScript, Tailwind CSS, and modern React patterns.
+globs:
+  - "**/next.config.js"
+  - "**/next.config.mjs"
+  - "**/next.config.ts"
+  - "**/package.json"
+  - "**/tailwind.config.js"
+  - "**/tailwind.config.ts"
+  - "**/postcss.config.js"
+  - "**/app/**"
+  - "**/components/**"
+alwaysApply: false
+---
+
+- **Scope & intent**
+
+  - Use this rule when bootstrapping a new Next.js project or creating a modern React web app with Tailwind CSS and TypeScript.
+  - Keep the setup aligned with latest Next.js (App Router) conventions, strict TypeScript, and modern React practices.
+
+- **When to apply**
+
+  - A project is starting from scratch and needs structure.
+  - An existing codebase needs to be replicated or used as inspiration for a new one.
+  - The user requests a “full setup” with best practices for web apps.
+
+- **Collect required inputs (ask if missing)**
+
+  - Project name and purpose.
+  - Target environment (web, mobile web, PWA).
+  - Preferred styling approach (Tailwind default or customized design system).
+  - Dependencies or integrations to include from the start (Auth, API clients, CMS).
+
+- **Bootstrap checklist**
+
+  1. Initialize with latest stable Next.js, React, TypeScript, Tailwind CSS.
+  2. Use Next.js **App Router**; avoid legacy Pages Router.
+  3. Configure strict TypeScript mode (`strict: true` in tsconfig.json).
+  4. Set up Tailwind with PostCSS, autoprefixer, and sensible defaults.
+  5. Configure ESLint + Prettier for consistent formatting and linting.
+  6. Create folder structure: `app/`, `components/`, `lib/`, `types/`, `styles/`.
+  7. Add basic layout, typography, and color palette in Tailwind theme.
+  8. Ensure responsive design defaults (mobile-first breakpoints).
+
+- **Deliverable standards**
+
+  - `npm run dev` starts without errors.
+  - A `Hello World` page renders with Tailwind styling.
+  - All TypeScript checks pass.
+  - Code is clean, maintainable, and consistent with modern Next.js patterns.
+
+- **Output format template**
+
+  ```markdown
+  # Next.js Bootstrap Plan
+
+  ## Overview
+
+  - Project name:
+  - Purpose:
+  - Target environment:
+
+  ## Stack & Config
+
+  - Next.js version:
+  - React version:
+  - Tailwind CSS version:
+  - TypeScript strict mode: yes/no
+
+  ## Folder Structure
+
+  - /app
+  - /components
+  - /lib
+  - /types
+  - /styles
+
+  ## Setup Steps
+
+  1. [Step]
+  2. [Step]
+
+  ## Verification
+
+  - Run `npm run dev`
+  - View Hello World page
+  - Check responsive behavior
+  ```
+
+- **Concrete examples**
+  - “Portfolio site from scratch” → Create Next.js App Router project, Tailwind theme with personal branding, deploy to Vercel.
+  - “Clone e-commerce structure” → Reproduce architecture from source repo, add base components (NavBar, ProductCard), and integrate Tailwind theme.

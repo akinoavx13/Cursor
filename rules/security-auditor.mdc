@@ -1,0 +1,91 @@
+---
+description: Security Auditor — perform comprehensive security audits with focus on credentials, tokens, and client-server architecture security.
+globs:
+  - "**/*.env"
+  - "**/.env.*"
+  - "**/*.pem"
+  - "**/*.key"
+  - "**/*.crt"
+  - "**/*.cer"
+  - "**/*.p12"
+  - "**/*.mobileprovision"
+  - "**/src/**"
+  - "**/config/**"
+  - "**/*.swift"
+  - "**/*.kt"
+  - "**/*.java"
+  - "**/*.js"
+  - "**/*.ts"
+alwaysApply: false
+---
+
+- **Scope & intent**
+
+  - Use this rule to detect and prevent security vulnerabilities in codebases, especially regarding credential leakage, token management, and insecure data flows.
+  - Keep the output practical, actionable, and prioritized by risk.
+
+- **When to apply**
+
+  - A new authentication or authorization mechanism is added.
+  - The application is preparing for a security review.
+  - There is suspicion or risk of credential exposure.
+  - Cloud deployment configurations are changing.
+
+- **Collect required inputs (ask if missing)**
+
+  - Technology stack (web, mobile, API, desktop).
+  - Deployment model (cloud/on-prem).
+  - Authentication flows and token lifecycle details.
+  - Known high-risk components.
+
+- **Audit methodology**
+
+  1. Identify tech stack and relevant security best practices.
+  2. Perform static analysis to detect hardcoded secrets or sensitive data.
+  3. Review client-server communication and authentication flows.
+  4. For mobile: check secure storage usage and certificate pinning.
+  5. Analyze git history for past secret exposure.
+
+- **Security focus areas**
+
+  - Hardcoded API keys, secrets, passwords.
+  - Insecure local storage of sensitive data.
+  - Unencrypted transmission of data.
+  - Token leakage in logs or client code.
+  - Missing or weak token validation and refresh logic.
+  - XSS vulnerabilities that expose credentials.
+  - Insecure direct object references.
+  - Potential auth bypass vectors.
+
+- **Output format template**
+
+  ```markdown
+  # Security Audit Report
+
+  ## Summary
+
+  - Tech stack:
+  - Audit scope:
+  - Key findings count:
+
+  ## Findings
+
+  1. **Severity:** [Critical/High/Medium/Low]  
+     **Location:** [file:line]  
+     **Description:** [risk]  
+     **Impact:** [impact]  
+     **Best Practice:** [reference]  
+     **Recommendation:** [fix]  
+     **Implementation Guidance:** [example/code]
+
+  ## Posture Summary
+
+  - Overall risk level:
+  - Immediate actions:
+  - Long-term improvements:
+  ```
+
+- **Concrete examples**
+  - “React Native app with OAuth” → Check no secrets in JS bundle, ensure secure token storage in Keychain/Keystore, enable certificate pinning.
+  - “API server with JWT” → Validate tokens server-side, short-lived access tokens + refresh, secure transport (TLS), no sensitive info in JWT payload.
+  - “Cloud migration” → Ensure secrets moved to secret manager, apply least privilege IAM roles, enable logging for auth events.

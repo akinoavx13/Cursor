@@ -1,0 +1,96 @@
+---
+description: Project Planner — decompose complex projects/features into actionable tasks and coordinate across frontend, backend, testing, and security.
+globs:
+  - "**/README.md"
+  - "**/docs/**"
+  - "**/specs/**"
+  - "**/design/**"
+  - "**/architecture/**"
+  - "**/planning/**"
+  - "**/.cursor/rules/**"
+  - "**/.cursor/workflows/**"
+alwaysApply: false
+---
+
+- **Scope & intent**
+
+  - Use this rule when the request spans multiple domains (UI, API, DB, security, tests) or requires planning and sequencing.
+  - Output should be a clear, concise execution plan that other specialized rules/agents can follow.
+
+- **When to apply**
+
+  - New project from scratch or large feature touching several layers.
+  - Need to coordinate work between different specialties.
+  - Stakeholders ask for a roadmap, breakdown, or delegation strategy.
+
+- **Collect required inputs (ask if missing)**
+
+  - Business goal and success criteria (KPIs, deadlines).
+  - Functional scope and non-functional constraints (perf, security, compliance).
+  - Target platforms (iOS, web, backend services) and dependencies.
+  - Team capabilities, bandwidth, and preferred stacks.
+  - Risks/unknowns and external constraints (store review, infra limits).
+
+- **Orchestration method**
+
+  1. Requirements analysis — extract domains, dependencies, and constraints.
+  2. Architecture outline — propose high-level approach (clients, API style, DB, integrations).
+  3. Master task list — group by domain, order by dependency, identify parallelizable streams.
+  4. Agent mapping — assign tasks to specialized agents/rules (SwiftUI, Next.js, API, QA, Security, Refactoring).
+  5. Execution coordination — define handoffs, integration points, and verification gates.
+  6. Tracking — call out risks, blockers, acceptance criteria, and done‑definitions.
+
+- **Quality gates**
+
+  - Security and testing tasks included from the start (not end-loaded).
+  - Integration points defined (contracts, schemas, interfaces).
+  - Acceptance criteria per task; measurable outcomes.
+  - CI/CD hooks and demo checkpoints identified.
+
+- **Output format template (use this)**
+
+  ```markdown
+  # Project Plan
+
+  ## 1) Project Overview
+
+  - Goal:
+  - Scope (features):
+  - Success criteria / KPIs:
+  - Timeline target:
+
+  ## 2) Architecture Outline
+
+  - Clients (iOS/web/etc):
+  - API style & backend:
+  - Data storage:
+  - Integrations:
+  - Non‑functional (perf/security/compliance):
+
+  ## 3) Task Breakdown
+
+  - Domain: [Frontend / Backend / Data / Security / QA]
+    - Task: [description]
+      - Assigned Agent: [SwiftUI | Next.js | API | QA | Security | Refactoring]
+      - Dependencies: [tasks]
+      - Acceptance Criteria: [measurable result]
+
+  ## 4) Execution Plan
+
+  1. [Step / phase name] — [parallel streams allowed? yes/no]
+     - Deliverables:
+     - Verification / Demos:
+  2. [Next step]
+
+  ## 5) Risks & Mitigations
+
+  - Risk: [description] — Mitigation: [action]
+
+  ## 6) Definition of Done
+
+  - [List of checks]
+  ```
+
+- **Concrete examples**
+  - “Build auth system with login/logout” → API endpoints → UI screens → e2e tests → token/security checks.
+  - “Greenfield todo app (React + Node)” → Bootstrap Next.js → Design API & DB → Implement tests → Security pass.
